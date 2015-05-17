@@ -1,0 +1,40 @@
+\chapter{future}
+\label{future}
+
+\section{future plans and considerations}
+
+These are suggestions and plans for the future.
+
+\begin{figure}
+\label{Gantt_chart_1}
+%\begin{landscape}
+\begin{centering}
+\scalebox{0.6}{
+\begin{gantt}[
+    xunitlength=0.5 cm,
+    fontsize=\small,
+    titlefontsize=\small,
+    drawledgerline=true
+]
+{6}{30}
+\begin{ganttitle}
+    \titleelement{2015}{12}
+    \titleelement{2016}{12}
+    \titleelement{2017}{6}
+    %\numtitle{2015}{12}{2016}{12}
+\end{ganttitle}
+\begin{ganttitle}
+    \numtitle{1}{1}{12}{1}
+    \numtitle{1}{1}{12}{1}
+    \numtitle{1}{1}{6}{1}
+\end{ganttitle}
+\ganttbar[pattern=north west lines, color=red]{analysis 1}{0}{6}
+\ganttbar[pattern=north west lines, color=blue]{analysis 2}{5}{25}
+\ganttbar[pattern=north west lines, color=orange]{analysis 3}{7}{23}
+\ganttbar[pattern=north west lines, color=green]{report}{24}{6}
+\end{gantt}
+}
+%\end{landscape}
+\caption{Gantt chart of work}
+\end{centering}
+\end{figure}

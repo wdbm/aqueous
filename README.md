@@ -1,2 +1,3 @@
 # aqueous
-standard LaTeX documents
+
+This code can be used to create LaTeX documents.

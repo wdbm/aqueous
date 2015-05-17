@@ -1,0 +1,215 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% aqueous                                                                      %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% version: 2015-05-17T1923Z                                                    %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% LICENCE INFORMATION                                                          %
+%                                                                              %
+% This program produces LaTeX documents.                                       %
+%                                                                              %
+% copyright (C) 2013 William Breaden Madden                                    %
+%                                                                              %
+% This software is released under the terms of the GNU General Public License  %
+% version 3 (GPLv3).                                                           %
+%                                                                              %
+% This program is free software: you can redistribute it and/or modify it      %
+% under the terms of the GNU General Public License as published by the Free   %
+% Software Foundation, either version 3 of the License, or (at your option)    %
+% any later version.                                                           %
+%                                                                              %
+% This program is distributed in the hope that it will be useful, but WITHOUT  %
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or        %
+% FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for     %
+% more details.                                                                %
+%                                                                              %
+% For a copy of the GNU General Public License, see                            %
+% <http://www.gnu.org/licenses/>.                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[american, a4paper]{report}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% measures specifications                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\measureJSpecification}{1 cm}
+\newcommand{\measureKSpecification}{2 cm}
+\newcommand{\measureLSpecification}{3 cm}
+\newcommand{\measureMSpecification}{4 cm}
+\newcommand{\measureNSpecification}{5.5 cm}
+\newcommand{\measureOSpecification}{5 cm}
+\newcommand{\measurePSpecification}{6 cm}
+\newcommand{\measureQSpecification}{7 cm}
+\newcommand{\measureRSpecification}{8 cm}
+\newcommand{\measureSSpecification}{9 cm}
+\newcommand{\measureTSpecification}{10 cm}
+\newcommand{\measureUSpecification}{11 cm}
+
+% graphics
+    \usepackage{graphicx}
+    \usepackage{pgf}
+    \usepackage{tikz}
+    \usepackage{pgfplots}
+    \usetikzlibrary{calc}
+    \usetikzlibrary{arrows, shapes}
+    \usetikzlibrary{arrows, automata}
+    \usetikzlibrary{positioning}
+% figures
+    \usepackage{subfigure}
+    \usepackage{float}
+% Gantt
+    % http://www.martin-kumm.de/tex_gantt_package.php
+    \usepackage{gantt}
+    \usepackage{pdflscape}
+% mathematics
+    \usepackage{amsmath}
+% floor and ceiling functions
+% examples:
+% - \ceil{x}
+% - \ceil[\big]{x}
+% - \ceil[\Big]{x}
+% - \ceil[\bigg]{x}
+% - \ceil[\Bigg]{x}
+% (and similar for \floor)
+    \usepackage{mathtools}
+    \usetikzlibrary{fit, arrows, calc, positioning}
+    \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+    \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+% checklists
+    \usepackage{bbding}
+% hyperlinks
+    \usepackage[hidelinks]{hyperref}
+% verbatim
+    \usepackage{verbatim}
+    \usepackage{fancyvrb}
+% justification
+    \usepackage{ragged2e}
+% Lorem ipsum
+    \usepackage{lipsum}
+% multiple columns
+    \usepackage{multicol}
+% tables
+    \usepackage{multirow}
+% time
+% ISO date
+    \usepackage{babel}
+% date formatting
+    \usepackage{datetime}
+    \newdateformat{timeA}{
+        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}
+    }
+    \newdateformat{timeB}{
+        \THEDAY~\monthname[\THEMONTH] \THEYEAR
+    }
+    \newdateformat{timeC}{
+        \monthname[\THEMONTH] \THEYEAR
+    }
+    \newtimeformat{timeD}{%
+        \twodigit{\THEHOUR}\twodigit{\THEMINUTE}\twodigit{\THESECOND}
+    }
+    \newtimeformat{timeE}{%
+        \twodigit{\THEHOUR}\twodigit{\THEMINUTE}
+    }
+    \newdateformat{timeF}{
+        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeD
+    }
+    \newdateformat{timeG}{
+        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeE
+    }
+% Set up SI units (for micrometers etc.)
+    \usepackage[mediumspace, mediumqspace, Grey, squaren]{SIunits}
+% line numbers (for draft versions etc.).
+    % e.g. \linenumbers
+    \usepackage{lineno}
+% coffee stains
+    \usetikzlibrary{arrows, shapes}
+    \usepackage{coffee4}
+    % example: \cofeDm{0.4}{0.1}{90}{1 cm}{-7 cm}
+% embed
+    \usepackage{attachfile}
+
+% figure command
+    \newcommand{\fig}[3][scale=1.0]{%
+        \begin{figure}[!htbp]
+            \centering
+            \vspace{2 mm}
+            \includegraphics[#1]{images/#2.eps}
+            \caption{#3}
+            \label{figure:#2}
+        \end{figure}
+    }
+
+% chapter titles
+    \usepackage{titlesec}
+    \titleformat{\chapter}{\Huge\bfseries}{\thechapter}{1 em}{\Huge\bfseries}
+
+% custom figure and table caption prefixes
+    \renewcommand{\figurename}{figure}
+    \renewcommand{\tablename}{table}
+
+% indentation
+    \setlength{\parindent}{0pt}
+
+\begin{document}
+
+%\linenumbers
+
+\pagenumbering{roman}
+
+% title page
+    \thispagestyle{empty}
+    \begin{center}
+        \includegraphics[height=3 cm]{images/ExperPartPhys_blue.eps}
+        \vspace{3.0 cm}\\
+        {\large
+        PROGRESS REPORT\\
+        \mbox{}\\PROJECT AQUEOUS}\\
+        \vspace{1.0 cm}
+        \mbox{}\\
+        Number 6\\
+        \vspace{\fill}
+        \vspace{2.0 cm}
+        \vspace{\fill}
+        School of Physics and Astronomy\\
+        University of Glasgow\\
+        \vspace{\fill}
+        \timeC\today
+	\end{center}		
+
+\include{abstract}
+
+\include{acknowledgements}
+
+% table of contents
+\renewcommand*\contentsname{contents}
+\tableofcontents
+
+% list of figures
+%\addcontentsline{toc}{chapter}{list of figures}
+%\listoffigures
+
+% list of tables
+%\addcontentsline{toc}{chapter}{list of tables}
+%\listoftables
+
+\pagenumbering{arabic}
+
+%\begin{multicols}{2}
+
+\include{introduction}
+
+\include{chapter_1}
+
+\include{future}
+
+%\end{multicols}
+
+\include{references}
+
+\end{document}
