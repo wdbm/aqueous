@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2015-05-17T1923Z                                                    %
+% version: 2015-10-14T1449Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -34,22 +34,25 @@
 
 \documentclass[american, a4paper]{report}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% measures specifications                                                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{configuration}
 
-\newcommand{\measureJSpecification}{1 cm}
-\newcommand{\measureKSpecification}{2 cm}
-\newcommand{\measureLSpecification}{3 cm}
-\newcommand{\measureMSpecification}{4 cm}
-\newcommand{\measureNSpecification}{5.5 cm}
-\newcommand{\measureOSpecification}{5 cm}
-\newcommand{\measurePSpecification}{6 cm}
-\newcommand{\measureQSpecification}{7 cm}
-\newcommand{\measureRSpecification}{8 cm}
-\newcommand{\measureSSpecification}{9 cm}
-\newcommand{\measureTSpecification}{10 cm}
-\newcommand{\measureUSpecification}{11 cm}
+% title style
+    \ifcase\styleTitles
+        % case 0
+        \newcommand{\figureNameSpecification}{Figure}
+        \newcommand{\tableNameSpecification}{Table}
+        \newcommand{\contentsNameSpecification}{Contents}
+    \or
+        % case 1
+        \newcommand{\figureNameSpecification}{figure}
+        \newcommand{\tableNameSpecification}{table}
+        \newcommand{\contentsNameSpecification}{contents}
+    \or
+        % case 2
+        \newcommand{\figureNameSpecification}{FIGURE}
+        \newcommand{\tableNameSpecification}{TABLE}
+        \newcommand{\contentsNameSpecification}{CONTENTS}
+    \fi
 
 % graphics
     \usepackage{graphicx}
@@ -149,67 +152,7 @@
     \usepackage{titlesec}
     \titleformat{\chapter}{\Huge\bfseries}{\thechapter}{1 em}{\Huge\bfseries}
 
-% custom figure and table caption prefixes
-    \renewcommand{\figurename}{figure}
-    \renewcommand{\tablename}{table}
-
 % indentation
     \setlength{\parindent}{0pt}
 
-\begin{document}
-
-%\linenumbers
-
-\pagenumbering{roman}
-
-% title page
-    \thispagestyle{empty}
-    \begin{center}
-        \includegraphics[height=3 cm]{images/ExperPartPhys_blue.eps}
-        \vspace{3.0 cm}\\
-        {\large
-        PROGRESS REPORT\\
-        \mbox{}\\PROJECT AQUEOUS}\\
-        \vspace{1.0 cm}
-        \mbox{}\\
-        Number 6\\
-        \vspace{\fill}
-        \vspace{2.0 cm}
-        \vspace{\fill}
-        School of Physics and Astronomy\\
-        University of Glasgow\\
-        \vspace{\fill}
-        \timeC\today
-	\end{center}		
-
-\include{abstract}
-
-\include{acknowledgements}
-
-% table of contents
-\renewcommand*\contentsname{contents}
-\tableofcontents
-
-% list of figures
-%\addcontentsline{toc}{chapter}{list of figures}
-%\listoffigures
-
-% list of tables
-%\addcontentsline{toc}{chapter}{list of tables}
-%\listoftables
-
-\pagenumbering{arabic}
-
-%\begin{multicols}{2}
-
-\include{introduction}
-
-\include{chapter_1}
-
-\include{future}
-
-%\end{multicols}
-
-\include{references}
-
-\end{document}
+\input{document}

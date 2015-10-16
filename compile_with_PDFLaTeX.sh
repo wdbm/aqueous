@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux
-pdflatex report.tex
-bibtex report
-pdflatex report.tex
-pdflatex report.tex
-rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux
+rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux *.out
+pdflatex aqueous.tex
+bibtex aqueous
+pdflatex aqueous.tex
+pdflatex aqueous.tex
+rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux *.out

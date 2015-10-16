@@ -2,10 +2,10 @@
 
 echo "note: no coffee"
 
-rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux
-latex report.tex
-bibtex report
-latex report.tex
-latex report.tex
-dvipdfm report.dvi
-rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux
+rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux *.out
+latex aqueous.tex
+bibtex aqueous
+latex aqueous.tex
+latex aqueous.tex
+dvipdfm aqueous.dvi
+rm *.log *.blg *.bbl *.lot *.lof *.toc *.aux *.out
