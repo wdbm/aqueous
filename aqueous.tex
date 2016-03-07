@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2015-10-14T1449Z                                                    %
+% version: 2016-03-07T1324Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -35,24 +35,6 @@
 \documentclass[american, a4paper]{report}
 
 \input{configuration}
-
-% title style
-    \ifcase\styleTitles
-        % case 0
-        \newcommand{\figureNameSpecification}{Figure}
-        \newcommand{\tableNameSpecification}{Table}
-        \newcommand{\contentsNameSpecification}{Contents}
-    \or
-        % case 1
-        \newcommand{\figureNameSpecification}{figure}
-        \newcommand{\tableNameSpecification}{table}
-        \newcommand{\contentsNameSpecification}{contents}
-    \or
-        % case 2
-        \newcommand{\figureNameSpecification}{FIGURE}
-        \newcommand{\tableNameSpecification}{TABLE}
-        \newcommand{\contentsNameSpecification}{CONTENTS}
-    \fi
 
 % graphics
     \usepackage{graphicx}
@@ -148,11 +130,36 @@
         \end{figure}
     }
 
-% chapter titles
-    \usepackage{titlesec}
-    \titleformat{\chapter}{\Huge\bfseries}{\thechapter}{1 em}{\Huge\bfseries}
-
 % indentation
     \setlength{\parindent}{0pt}
+
+% title style
+    \ifcase\styleTitles
+        % case 0
+        \newcommand{\figureNameSpecification}{Figure}
+        \newcommand{\tableNameSpecification}{Table}
+        \newcommand{\contentsNameSpecification}{Contents}
+        \newcommand{\chapterNameSpecification}{Chapter}
+    \or
+        % case 1
+        \newcommand{\figureNameSpecification}{figure}
+        \newcommand{\tableNameSpecification}{table}
+        \newcommand{\contentsNameSpecification}{contents}
+        \newcommand{\chapterNameSpecification}{chapter}
+        \usepackage{titlesec}
+        \titleformat{\chapter}{\Huge\bfseries}{\thechapter}{1 em}{\Huge\bfseries}
+    \or
+        % case 2
+        \newcommand{\figureNameSpecification}{FIGURE}
+        \newcommand{\tableNameSpecification}{TABLE}
+        \newcommand{\contentsNameSpecification}{CONTENTS}
+        \newcommand{\chapterNameSpecification}{CHAPTER}
+    \fi
+
+    \usepackage{fancyhdr}
+    \renewcommand{\figurename}{\figureNameSpecification}
+    \renewcommand{\tablename}{\tableNameSpecification}
+    \renewcommand{\contentsname}{\contentsNameSpecification}
+    \renewcommand{\chaptername}{\chapterNameSpecification}
 
 \input{document}
