@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2016-03-07T1324Z                                                    %
+% version: 2016-04-28T1535Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -118,6 +118,9 @@
     % example: \cofeDm{0.4}{0.1}{90}{1 cm}{-7 cm}
 % embed
     \usepackage{attachfile}
+% titles
+    \usepackage{fancyhdr}
+    \usepackage{titlesec}
 
 % figure command
     \newcommand{\fig}[3][scale=1.0]{%
@@ -146,20 +149,20 @@
         \newcommand{\tableNameSpecification}{table}
         \newcommand{\contentsNameSpecification}{contents}
         \newcommand{\chapterNameSpecification}{chapter}
-        \usepackage{titlesec}
-        \titleformat{\chapter}{\Huge\bfseries}{\thechapter}{1 em}{\Huge\bfseries}
+        \titleformat{\chapter}{\Huge\bfseries}{\chapterNameSpecification~\thechapter}{1 em}{\Huge\bfseries}
     \or
         % case 2
         \newcommand{\figureNameSpecification}{FIGURE}
         \newcommand{\tableNameSpecification}{TABLE}
         \newcommand{\contentsNameSpecification}{CONTENTS}
         \newcommand{\chapterNameSpecification}{CHAPTER}
+        \titleformat{\chapter}{\Huge\bfseries}{\chapterNameSpecification~\thechapter}{1 em}{\Huge\bfseries}
     \fi
 
-    \usepackage{fancyhdr}
-    \renewcommand{\figurename}{\figureNameSpecification}
-    \renewcommand{\tablename}{\tableNameSpecification}
-    \renewcommand{\contentsname}{\contentsNameSpecification}
-    \renewcommand{\chaptername}{\chapterNameSpecification}
+
+\renewcommand{\figurename}{\figureNameSpecification}
+\renewcommand{\tablename}{\tableNameSpecification}
+\renewcommand{\contentsname}{\contentsNameSpecification}
+\renewcommand{\chaptername}{\chapterNameSpecification}
 
 \input{document}
