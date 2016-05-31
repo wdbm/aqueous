@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # -t:           mode: TeX
-# --lang=en_GB: English G.B. dictionary
+# --lang=en_GB: English G.B. dictionary (other dictionaries: aspell dump dicts)
 # -c:           check single file
 
 aspell -t --lang=en_GB -c abstract.tex
