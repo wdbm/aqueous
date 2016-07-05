@@ -22,7 +22,12 @@ A few time representations follow:
 
 \subsection{units}
 
-This is a unit: ${1\textrm{ kB}}$.
+\begin{itemize}
+\item \SI{10}{kg} -- correct unit typesetting (siunitx)
+\item ${10\textrm{ kg}}$ -- incorrect unit typesetting (mathematics, textrm)
+\item 10 kg -- incorrect unit typesetting (literally)
+\item \SI{10}{kg m s^{-2}} -- correct unit typesetting
+\end{itemize}
 
 \subsection{lists}
 
