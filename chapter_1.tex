@@ -23,12 +23,13 @@ A few time representations follow:
 \subsection{units}
 
 \begin{itemize}
+\item \mathunit{${a^{b}}$}{m^{2}} -- correct unit typesetting (manual siunitx function) (preferred for mathematics mode)
 \item \SI{10}{kg} -- correct unit typesetting (siunitx)
 \item ${10\,\textnormal{kg}}$ -- incorrect unit typesetting (mathematics, textnormal)
 \item 10 kg -- incorrect unit typesetting (literally)
 \item \SI{10}{kg m s^{-2}} -- correct unit typesetting (siunitx)
 \item ${10^{-28}}$\,\si{m^{2}} -- correct unit typesetting, though very manual (siunitx)
-\item ${a^{b}}$\,\si{m^{2}} -- correct unit typesetting, though very manual (siunitx) (preferred for mathematics mode)
+\item ${a^{b}}$\,\si{m^{2}} -- correct unit typesetting, though manual (siunitx) (preferred for mathematics mode)
 \item \SI[parse-numbers=false]{a^{b}}{m^{2}} -- dodgy, manual correct unit typesetting (siunitx)
 \item \SI[parse-numbers=false, number-math-rm=\ensuremath]{a^{b}}{m^{2}} (siunitx)
 \end{itemize}
