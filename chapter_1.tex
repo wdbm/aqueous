@@ -23,7 +23,7 @@ A few time representations follow:
 \subsection{units}
 
 \begin{itemize}
-\item \mathunit{${a^{b}}$}{m^{2}} -- correct unit typesetting (manual siunitx function) (preferred for mathematics mode)
+\item \mathunit{${a^{b}}$}{m^{2}} -- correct unit typesetting (manual siunitx function) (preferred for mathematics mode, though note that the function for this is provided by aqueous [see below for manual equivalent method not dependent on aqueous])
 \item \SI{10}{kg} -- correct unit typesetting (siunitx)
 \item ${10\,\textnormal{kg}}$ -- incorrect unit typesetting (mathematics, textnormal)
 \item 10 kg -- incorrect unit typesetting (literally)
@@ -33,6 +33,17 @@ A few time representations follow:
 \item \SI[parse-numbers=false]{a^{b}}{m^{2}} -- dodgy, manual correct unit typesetting (siunitx)
 \item \SI[parse-numbers=false, number-math-rm=\ensuremath]{a^{b}}{m^{2}} (siunitx)
 \end{itemize}
+
+\subsection{mathematics}
+
+The following is a referenced equation:
+
+\begin{equation}
+\label{equation:emc2}
+E=mc^{2}
+\end{equation}
+
+This is a reference to equation \ref{equation:emc2}.
 
 \subsection{lists}
 
