@@ -20,7 +20,7 @@ A few time representations follow:
 \item \timeG\today
 \end{itemize}
 
-\subsection{units}
+\subsection{units and units typesetting}
 
 \begin{itemize}
 \item \mathunit{${a^{b}}$}{m^{2}} -- correct unit typesetting (manual siunitx function) (preferred for mathematics mode, though note that the function for this is provided by aqueous [see below for manual equivalent method not dependent on aqueous])
@@ -32,6 +32,11 @@ A few time representations follow:
 \item ${a^{b}}$\,\si{m^{2}} -- correct unit typesetting, though manual (siunitx) (preferred for mathematics mode)
 \item \SI[parse-numbers=false]{a^{b}}{m^{2}} -- dodgy, manual correct unit typesetting (siunitx)
 \item \SI[parse-numbers=false, number-math-rm=\ensuremath]{a^{b}}{m^{2}} (siunitx)
+\end{itemize}
+
+\begin{itemize}
+\item The angle is ${14\degree}$.
+\item The temperature is \SI{14}{\celsius}. -- correct unit typesetting (siunitx)
 \end{itemize}
 
 \subsection{mathematics}

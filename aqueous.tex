@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2016-09-19T1232Z                                                    %
+% version: 2017-05-08T1412Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -37,23 +37,31 @@
 \input{configuration}
 
 % graphics
-    \usepackage{graphicx}
-    \usepackage{pgf}
-    \usepackage{tikz}
-    \usepackage{pgfplots}
-    \usetikzlibrary{calc}
-    \usetikzlibrary{arrows, shapes}
-    \usetikzlibrary{arrows, automata}
-    \usetikzlibrary{positioning}
+
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows, shapes}
+\usetikzlibrary{arrows, automata}
+\usetikzlibrary{positioning}
+
 % figures
-    \usepackage{subfigure}
-    \usepackage{float}
+
+\usepackage{subfigure}
+\usepackage{float}
+
 % Gantt
-    % http://www.martin-kumm.de/tex_gantt_package.php
-    \usepackage{gantt}
-    \usepackage{pdflscape}
+
+% http://www.martin-kumm.de/tex_gantt_package.php
+\usepackage{gantt}
+\usepackage{pdflscape}
+
 % mathematics
-    \usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage{gensymb}
+
 % floor and ceiling functions
 % examples:
 % - \ceil{x}
@@ -62,108 +70,119 @@
 % - \ceil[\bigg]{x}
 % - \ceil[\Bigg]{x}
 % (and similar for \floor)
-    \usepackage{mathtools}
-    \usetikzlibrary{fit, arrows, calc, positioning}
-    \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-    \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage{mathtools}
+\usetikzlibrary{fit, arrows, calc, positioning}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
 % checklists
-    \usepackage{bbding}
+\usepackage{bbding}
+
 % hyperlinks
-    \usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks]{hyperref}
+
 % verbatim
-    \usepackage{verbatim}
-    \usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+
 % justification
-    \usepackage{ragged2e}
+\usepackage{ragged2e}
+
 % Lorem ipsum
-    \usepackage{lipsum}
+\usepackage{lipsum}
+
 % multiple columns
-    \usepackage{multicol}
+\usepackage{multicol}
+
 % tables
-    \usepackage{multirow}
+\usepackage{multirow}
+
 % time
 % ISO date
-    \usepackage{babel}
+\usepackage{babel}
 % date formatting
-    \usepackage{datetime}
-    \newdateformat{timeA}{
-        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}
-    }
-    \newdateformat{timeB}{
-        \THEDAY~\monthname[\THEMONTH] \THEYEAR
-    }
-    \newdateformat{timeC}{
-        \monthname[\THEMONTH] \THEYEAR
-    }
-    \newtimeformat{timeD}{%
-        \twodigit{\THEHOUR}\twodigit{\THEMINUTE}\twodigit{\THESECOND}
-    }
-    \newtimeformat{timeE}{%
-        \twodigit{\THEHOUR}\twodigit{\THEMINUTE}
-    }
-    \newdateformat{timeF}{
-        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeD
-    }
-    \newdateformat{timeG}{
-        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeE
-    }
-% Set up SI units (for micrometers etc.)
-    %\usepackage[mediumspace, mediumqspace, Grey, squaren]{SIunits}
-    \usepackage{siunitx}
+\usepackage{datetime}
+\newdateformat{timeA}{
+    \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}
+}
+\newdateformat{timeB}{
+    \THEDAY~\monthname[\THEMONTH] \THEYEAR
+}
+\newdateformat{timeC}{
+    \monthname[\THEMONTH] \THEYEAR
+}
+\newtimeformat{timeD}{%
+    \twodigit{\THEHOUR}\twodigit{\THEMINUTE}\twodigit{\THESECOND}
+}
+\newtimeformat{timeE}{%
+    \twodigit{\THEHOUR}\twodigit{\THEMINUTE}
+}
+\newdateformat{timeF}{
+    \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeD
+}
+\newdateformat{timeG}{
+    \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeE
+}
+
+% SI units (for micrometers etc.)
+%\usepackage[mediumspace, mediumqspace, Grey, squaren]{SIunits}
+\usepackage{siunitx}
+
 % line numbers (for draft versions etc.).
-    % e.g. \linenumbers
-    \usepackage{lineno}
+% example: \linenumbers
+\usepackage{lineno}
+
 % coffee stains
-    \usetikzlibrary{arrows, shapes}
-    \usepackage{coffee4}
-    % example: \cofeDm{0.4}{0.1}{90}{1 cm}{-7 cm}
+\usetikzlibrary{arrows, shapes}
+\usepackage{coffee4}
+% example: \cofeDm{0.4}{0.1}{90}{1 cm}{-7 cm}
+
 % embed
-    \usepackage{attachfile}
+\usepackage{attachfile}
+
 % titles
-    \usepackage{fancyhdr}
-    \usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
 
 % figure command
-    \newcommand{\fig}[3][scale=1.0]{%
-        \begin{figure}[!htbp]
-            \centering
-            \vspace{2 mm}
-            \includegraphics[#1]{images/#2.eps}
-            \caption{#3}
-            \label{figure:#2}
-        \end{figure}
-    }
+\newcommand{\fig}[3][scale=1.0]{%
+    \begin{figure}[!htbp]
+        \centering
+        \vspace{2 mm}
+        \includegraphics[#1]{images/#2.eps}
+        \caption{#3}
+        \label{figure:#2}
+    \end{figure}
+}
 
 % mathematics-compatible unit command
-    \newcommand{\mathunit}[2]{#1\,\si{#2}}
+\newcommand{\mathunit}[2]{#1\,\si{#2}}
 
 % indentation
-    \setlength{\parindent}{0pt}
+\setlength{\parindent}{0pt}
 
-% title style
-    \ifcase\styleTitles
-        % case 0
-        \newcommand{\figureNameSpecification}{Figure}
-        \newcommand{\tableNameSpecification}{Table}
-        \newcommand{\contentsNameSpecification}{Contents}
-        \newcommand{\chapterNameSpecification}{Chapter}
-    \or
-        % case 1
-        \newcommand{\figureNameSpecification}{figure}
-        \newcommand{\tableNameSpecification}{table}
-        \newcommand{\contentsNameSpecification}{contents}
-        \newcommand{\chapterNameSpecification}{chapter}
-        \titleformat{\chapter}{\Huge\bfseries}{\chapterNameSpecification~\thechapter}{1 em}{\Huge\bfseries}
-    \or
-        % case 2
-        \newcommand{\figureNameSpecification}{FIGURE}
-        \newcommand{\tableNameSpecification}{TABLE}
-        \newcommand{\contentsNameSpecification}{CONTENTS}
-        \newcommand{\chapterNameSpecification}{CHAPTER}
-        \titleformat{\chapter}{\Huge\bfseries}{\chapterNameSpecification~\thechapter}{1 em}{\Huge\bfseries}
-    \fi
-
-
+% title styles
+\ifcase\styleTitles
+    % case 0
+    \newcommand{\figureNameSpecification}{Figure}
+    \newcommand{\tableNameSpecification}{Table}
+    \newcommand{\contentsNameSpecification}{Contents}
+    \newcommand{\chapterNameSpecification}{Chapter}
+\or
+    % case 1
+    \newcommand{\figureNameSpecification}{figure}
+    \newcommand{\tableNameSpecification}{table}
+    \newcommand{\contentsNameSpecification}{contents}
+    \newcommand{\chapterNameSpecification}{chapter}
+    \titleformat{\chapter}{\Huge\bfseries}{\chapterNameSpecification~\thechapter}{1 em}{\Huge\bfseries}
+\or
+    % case 2
+    \newcommand{\figureNameSpecification}{FIGURE}
+    \newcommand{\tableNameSpecification}{TABLE}
+    \newcommand{\contentsNameSpecification}{CONTENTS}
+    \newcommand{\chapterNameSpecification}{CHAPTER}
+    \titleformat{\chapter}{\Huge\bfseries}{\chapterNameSpecification~\thechapter}{1 em}{\Huge\bfseries}
+\fi
 \renewcommand{\figurename}{\figureNameSpecification}
 \renewcommand{\tablename}{\tableNameSpecification}
 \renewcommand{\contentsname}{\contentsNameSpecification}
