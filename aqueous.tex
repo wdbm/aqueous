@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2017-05-08T1857Z                                                    %
+% version: 2017-05-08T2030Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -59,11 +59,14 @@
 \usepackage{pdflscape}
 
 % mathematics
+
 \usepackage{amsmath}
 \usepackage{gensymb}
 \usepackage{bm}
+\usepackage{cancel}
 
 % floor and ceiling functions
+
 % examples:
 % - \ceil{x}
 % - \ceil[\big]{x}
@@ -76,29 +79,43 @@
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
+% Feynman diagrams
+
+\usepackage{feynmp}
+\usepackage{feynmp-auto}
+\unitlength=1.00 mm
+
 % checklists
+
 \usepackage{bbding}
 
 % hyperlinks
+
 \usepackage[hidelinks]{hyperref}
 
 % verbatim
+
 \usepackage{verbatim}
 \usepackage{fancyvrb}
 
 % justification
+
 \usepackage{ragged2e}
 
 % Lorem ipsum
+
 \usepackage{lipsum}
 
 % multiple columns
+
 \usepackage{multicol}
 
 % tables
+
 \usepackage{multirow}
 
 % time
+
 % ISO date
 \usepackage{babel}
 % date formatting
@@ -126,26 +143,32 @@
 }
 
 % SI units (for micrometers etc.)
+
 %\usepackage[mediumspace, mediumqspace, Grey, squaren]{SIunits}
 \usepackage{siunitx}
 
 % line numbers (for draft versions etc.).
+
 % example: \linenumbers
 \usepackage{lineno}
 
 % coffee stains
+
 \usetikzlibrary{arrows, shapes}
 \usepackage{coffee4}
 % example: \cofeDm{0.4}{0.1}{90}{1 cm}{-7 cm}
 
 % embed
+
 \usepackage{attachfile}
 
 % titles
+
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 
 % figure command
+
 \newcommand{\fig}[3][scale=1.0]{%
     \begin{figure}[!htbp]
         \centering
@@ -157,13 +180,16 @@
 }
 
 % mathematics-compatible unit command
+
 \newcommand{\mathunit}[2]{#1\,\si{#2}}
 
 % indentation
+
 %\setlength{\parindent}{0pt}
 \usepackage{parskip}
 
 % title styles
+
 \ifcase\styleTitles
     % case 0
     \newcommand{\figureNameSpecification}{Figure}

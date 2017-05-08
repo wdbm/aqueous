@@ -113,6 +113,36 @@ This is a figure set to the text width:
 \label{figure:PJP_1}
 \end{figure}
 
+Here is a Feynman diagram:
+
+\begin{figure}
+\begin{center}
+\begin{fmffile}{gg}
+\begin{fmfchar*}(50,35)
+
+\fmfleftn{i}{2}                       % 2 initial states
+\fmfrightn{o}{2}                      % 4 final states
+
+\fmf{fermion}{i1,v1}                  % e
+\fmf{fermion}{v1,i2}                  % e
+
+\fmf{photon, label=\(\gamma\)}{v1,v2} % gamma
+
+\fmf{fermion}{o1,v2}                  % e
+\fmf{fermion}{v2,o2}                  % e
+
+\fmflabel{\(e^{-}\)}{i1}              % gamma
+\fmflabel{\(e^{-}\)}{i2}              % gamma
+\fmflabel{\(e^{-}\)}{o1}              % gamma
+\fmflabel{\(e^{-}\)}{o2}              % gamma
+
+\end{fmfchar*}
+\end{fmffile}
+\caption{Feynman diagram}
+\label{figure:Feynman_diagram_1}
+\end{center}
+\end{figure}
+
 \subsection{references}
 
 This is a reference to figure~\ref{figure:PJP_1}. This is a reference~\cite{Tianjun_1}. This is another reference~\cite{McCulloch_Pitts_1}. This is a URL: \href{https://github.com/wdbm/aqueous}{\textcolor{black!100}{https://github.com/wdbm/aqueous}}
