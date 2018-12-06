@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2017-05-08T2030Z                                                    %
+% version: 2018-12-06T2234Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -215,5 +215,14 @@
 \renewcommand{\tablename}{\tableNameSpecification}
 \renewcommand{\contentsname}{\contentsNameSpecification}
 \renewcommand{\chaptername}{\chapterNameSpecification}
+
+% quotations
+
+\newcommand{\epigraph}[2]{
+    \hfill
+    \parbox{0.85\textwidth}{\em #1}\\
+    [5pt]
+    \rightline{{\rm -- #2}}
+}
 
 \input{document}
