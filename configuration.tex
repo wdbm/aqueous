@@ -14,6 +14,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \edef\styleTitles{0}
+\edef\demoMedia{0} % turn placeholder images on with 1 and off with 0
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % measures specifications                                                      %
@@ -31,6 +32,123 @@
 \newcommand{\measureSSpecification}{9 cm}
 \newcommand{\measureTSpecification}{10 cm}
 \newcommand{\measureUSpecification}{11 cm}
+
+\usepackage{xspace}
+
+% figure size specifications
+\newcommand{\measureAFigureSpecification}{10 cm}
+\newcommand{\measureBFigureSpecification}{\textwidth}
+\newcommand{\measureBBFigureSpecification}{0.75\textwidth}
+\newcommand{\measureCFigureSpecification}{0.5\textwidth}
+
+% quick physics and statistics terms for use in normal text
+\newcommand{\threesigma}{${3\sigma}$\xspace}
+\newcommand{\fivesigma}{${5\sigma}$\xspace}
+\newcommand{\ttH}{${t\bar{t}H}$\xspace}
+\newcommand{\ttbar}{${t\bar{t}}$\xspace}
+\newcommand{\Hbb}{${H\to bb}$\xspace}
+\newcommand{\ttHbb}{${t\bar{t}H\left(b\bar{b}\right)}$\xspace}
+\newcommand{\ttbb}{${t\bar{t}b\bar{b}}$\xspace}
+\newcommand{\boldttHbb}{${\boldsymbol{t\bar{t}H\left(b\bar{b}\right)}}$\xspace}
+\newcommand{\boldt}{${\boldsymbol{t}}$\xspace}
+\newcommand{\pT}{${p_{\textrm{T}}}$\xspace}
+\newcommand{\MET}{${\cancel{E}_{\textrm{T}}}$\xspace}
+\newcommand{\METMM}{\cancel{E}_{\textrm{T}}\xspace} % math mode
+\newcommand{\etaphi}{${\eta}$--${\phi}$\xspace}
+\newcommand{\rphi}{${r}$--${\phi}$\xspace}
+
+% silly collaboration symbols
+\usepackage{stackengine}[2013-09-11]
+\newcommand{\slashzero}{\stackinset{c}{}{c}{}{/}{0}\xspace}
+
+% SM in math mode
+\newcommand{\SUthreeMM}{\mathrm{SU}\left(3\right)_{\mathrm{C}}\xspace}
+\newcommand{\SUtwoMM}{\mathrm{SU}\left(2\right)_{\mathrm{L}}\xspace}
+\newcommand{\UoneMM}{\mathrm{U}\left(1\right)_{\mathrm{Y}}\xspace}
+\newcommand{\SUfiveMM}{\textrm{SU}\left(5\right)\xspace}
+\newcommand{\SUthreeSUtwoUoneMM}{\mathrm{SU}\left(3\right)_{\mathrm{C}}\times \mathrm{SU}\left(2\right)_{\mathrm{L}}\times\mathrm{U}\left(1\right)_{\mathrm{Y}}\xspace}
+
+% SM for use in normal text
+\newcommand{\SUthree}{${\SUthreeMM}$\xspace}
+\newcommand{\SUtwo}{${\SUtwoMM}$\xspace}
+\newcommand{\Uone}{${\UoneMM}$\xspace}
+\newcommand{\SUfive}{${\SUfiveMM}$\xspace}
+\newcommand{\SUthreeSUtwoUone}{${\SUthreeSUtwoUoneMM}$\xspace}
+
+% eV units kerning
+\newcommand{\eV}{\text{e\kern-0.15ex V}\xspace}
+\newcommand{\MeV}{\text{M\eV}\xspace}
+\newcommand{\GeV}{\text{G\eV}\xspace}
+\newcommand{\TeV}{\text{T\kern-0.1ex \eV}\xspace}
+
+% other
+\newcommand{\dzero}{D\slashzero\xspace\xspace}
+
+% software
+\newcommand{\ROOT}{\textsc{ROOT}\xspace}
+\newcommand{\Athena}{\textsc{Athena}\xspace}
+\newcommand{\AthenaMP}{\textsc{AthenaMP}\xspace}
+\newcommand{\AthenaMT}{\textsc{AthenaMT}\xspace}
+%\newcommand{\ATLASJobTransforms}{\mbox{\textsc{ATLAS Job Transforms}}\xspace}
+\newcommand{\ATLASJobTransforms}{\mbox{ATLAS Job Transforms}\xspace}
+\newcommand{\Geant}{\textsc{Geant4}\xspace}
+\newcommand{\TensorFlow}{\textsc{TensorFlow}\xspace}
+\newcommand{\Keras}{\textsc{Keras}\xspace}
+\newcommand{\TTHSemileptonic}{\textsc{TTHSemileptonic}\xspace}
+\newcommand{\TTHbbLeptonic}{\textsc{TTHbbLeptonic}\xspace}
+\newcommand{\TTHbbAnalysis}{\textsc{TTHbbAnalysis}\xspace}
+\newcommand{\AnalysisBase}{\textsc{AnalysisBase}\xspace}
+\newcommand{\RootCore}{\textsc{RootCore}\xspace}
+\newcommand{\EventLoop}{\textsc{EventLoop}\xspace}
+\newcommand{\AnalysisTop}{\textsc{AnalysisTop}\xspace}
+\newcommand{\TRExFitter}{\textsc{TRExFitter}\xspace}
+\newcommand{\RooFit}{\textsc{RooFit}\xspace}
+\newcommand{\RooStats}{\textsc{RooStats}\xspace}
+\newcommand{\Docker}{\textsc{Docker}\xspace}
+
+% placeholder text
+\newcommand{\placeholder}{
+\begin{center}
+\huge PLACEHOLDER
+\end{center}
+}
+\newcommand{\placeholderfill}{
+\vspace*{\fill}
+\begin{center}
+\huge PLACEHOLDER
+\end{center}
+\vspace*{\fill}
+}
+
+% epigraph, quotations
+%\newcommand{\epigraph}[2]{
+%    \hfill
+%    \parbox{0.85\textwidth}{\em #1}\\
+%    [5pt]
+%    \rightline{{\rm -- #2}}
+%}
+\usepackage{epigraph}
+\setlength{\epigraphwidth}{0.7\textwidth} % set quotations width
+%\renewcommand{\epigraphrule}{0pt} % set epigraph line width
+\newcommand{\epigraphcommand}[2]{
+    \epigraph{#1\vspace{-10pt}}{\vspace{-0pt}#2}
+}
+
+% line spacing
+\renewcommand{\baselinestretch}{1.55}
+
+\usepackage{tabularx}
+
+% force all subscripts to be the same height, regardless of superscripts
+\usepackage{subdepth}
+
+% line numbers
+\usepackage{lineno}
+\linenumbers
+
+% subsubsections included in table of contents
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % end of configuration                                                         %

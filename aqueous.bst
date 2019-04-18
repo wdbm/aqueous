@@ -4,7 +4,8 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `seq-no,nm-init,ed-au,nmlm,x4,m1,dt-end,yr-par,tit-it,atit-u,jttl-rm,vnum-sp,volp-com,num-xser,ser-vol,bkpg-x,edpar,blk-com,fin-bare,ppx,xedn,and-xcom,etal-xc,url,url-blk,nfss,')
+%% merlin.mbs  (with options: 
+`nm-init,ed-au,nmlm,x7,m7,mcite,mct-6,mct-x6,yr-par,tit-it,atit-u,jttl-rm,vnum-sp,volp-sp,num-xser,bkpg-x,isbn,issn,doi,edpar,blk-com,fin-bare,ppx,xedn,and-xcom,etal-xc,url,url-blk,nfss,')
 %% ----------------------------------------
 %% *** aqueous ***
 %% 
@@ -41,11 +42,15 @@ ENTRY
     author
     booktitle
     chapter
+    date
+    doi
     edition
     editor
     eid
     howpublished
     institution
+    isbn
+    issn
     journal
     key
     month
@@ -388,9 +393,9 @@ FUNCTION {format.names}
       't :=
       nameptr #1 >
         {
-          nameptr #1
+          nameptr #7
           #1 + =
-          numnames #4
+          numnames #7
           > and
             { "others" 't :=
               #1 'namesleft := }
@@ -443,6 +448,32 @@ FUNCTION {format.editors}
     }
   if$
 }
+FUNCTION {format.isbn}
+{ isbn "isbn" bibinfo.check
+  duplicate$ empty$ 'skip$
+    {
+      "ISBN " swap$ *
+    }
+  if$
+}
+
+FUNCTION {format.issn}
+{ issn "issn" bibinfo.check
+  duplicate$ empty$ 'skip$
+    {
+      "ISSN " swap$ *
+    }
+  if$
+}
+
+FUNCTION {format.doi}
+{ doi empty$
+    { "" }
+    {
+      "\doi{" doi * "}" *
+    }
+  if$
+}
 FUNCTION {format.note}
 {
  note empty$
@@ -451,7 +482,7 @@ FUNCTION {format.note}
       duplicate$ "{" =
         'skip$
         { output.state mid.sentence =
-          { "l" }
+          { "u" }
           { "u" }
         if$
         change.case$
@@ -513,6 +544,7 @@ FUNCTION {word.in}
 
 FUNCTION {format.date}
 {
+  %%date "date" bibinfo.check
   month "month" bibinfo.check
   duplicate$ empty$
   year  "year"  bibinfo.check duplicate$ empty$
@@ -724,7 +756,7 @@ FUNCTION {format.in.ed.booktitle}
 }
 FUNCTION {empty.misc.check}
 { author empty$ title empty$ howpublished empty$
-  month empty$ year empty$ note empty$
+  date empty$ month empty$ year empty$ note empty$
   and and and and and
     { "all relevant fields are empty in " cite$ * warning$ }
     'skip$
@@ -878,14 +910,16 @@ FUNCTION {article}
       "journal" bibinfo.check
       "journal" output.check
       format.vol.num.pages output
+      format.date "year" output.check
     }
     { format.article.crossref output.nonnull
       format.pages output
     }
   if$
+  format.issn output
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 FUNCTION {book}
@@ -911,9 +945,11 @@ FUNCTION {book}
     }
   if$
   format.edition output
+  format.date "year" output.check
+  format.isbn output
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 FUNCTION {booklet}
@@ -922,9 +958,11 @@ FUNCTION {booklet}
   format.title "title" output.check
   howpublished "howpublished" bibinfo.check output
   address "address" bibinfo.check output
+  format.date output
+  format.isbn output
+  format.doi output
   format.url output
   format.note output
-  format.date output
   fin.entry
 }
 
@@ -971,14 +1009,16 @@ FUNCTION {incollection}
       format.chapter.pages output
       format.publisher.address output
       format.edition output
+      format.date "year" output.check
+      format.isbn output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.chapter.pages output
     }
   if$
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 FUNCTION {inproceedings}
@@ -996,14 +1036,17 @@ FUNCTION {inproceedings}
           format.publisher.address output
         }
       if$
+      format.date "year" output.check
+      format.isbn output
+      format.issn output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
     }
   if$
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 FUNCTION {conference} { inproceedings }
@@ -1034,9 +1077,10 @@ FUNCTION {manual}
     }
   if$
   format.edition output
+  format.date output
+  format.doi output
   format.url output
   format.note output
-  format.date output
   fin.entry
 }
 
@@ -1048,9 +1092,10 @@ FUNCTION {mastersthesis}
   bbl.mthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
+  format.date "year" output.check
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 
@@ -1059,9 +1104,10 @@ FUNCTION {misc}
   format.authors output
   format.title output
   howpublished "howpublished" bibinfo.check output
+  format.date output
+  format.doi output
   format.url output
   format.note output
-  format.date output
   fin.entry
   empty.misc.check
 }
@@ -1073,9 +1119,10 @@ FUNCTION {phdthesis}
   bbl.phdthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
+  format.date "year" output.check
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 
@@ -1091,6 +1138,7 @@ FUNCTION {proceedings}
   format.number.series output
   editor empty$
     { publisher empty$
+        'skip$
         {
           format.publisher.address output
         }
@@ -1106,9 +1154,12 @@ FUNCTION {proceedings}
       if$
      }
   if$
+      format.date "year" output.check
+  format.isbn output
+  format.issn output
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 
@@ -1120,9 +1171,10 @@ FUNCTION {techreport}
   format.tr.number output.nonnull
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
+  format.date "year" output.check
+  format.doi output
   format.url output
   format.note output
-  format.date "year" output.check
   fin.entry
 }
 
@@ -1130,9 +1182,10 @@ FUNCTION {unpublished}
 { output.bibitem
   format.authors "author" output.check
   format.title "title" output.check
+  format.date output
+  format.doi output
   format.url output
   format.note "note" output.check
-  format.date output
   fin.entry
 }
 
@@ -1167,6 +1220,12 @@ FUNCTION {begin.bib}
   "\providecommand{\url}[1]{\texttt{#1}}"
   write$ newline$
   "\providecommand{\urlprefix}{URL }"
+  write$ newline$
+  "\expandafter\ifx\csname urlstyle\endcsname\relax"
+  write$ newline$
+  "  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else"
+  write$ newline$
+  "  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi"
   write$ newline$
 }
 EXECUTE {begin.bib}
