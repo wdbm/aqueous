@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2019-04-18T1549Z                                                    %
+% version: 2019-04-18T1605Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -173,6 +173,19 @@
 \usetikzlibrary{arrows, shapes}
 \usepackage{coffee4}
 % example: \cofeDm{0.4}{0.1}{90}{1 cm}{-7 cm}
+
+\def\bitcoin{%
+    \leavevmode
+    \vtop{
+        \offinterlineskip
+        \setbox0=\hbox{B}
+        \setbox2=\hbox to \wd0{%
+            \hfil\hskip-.03em
+            \vrule height .3ex width .15ex\hskip .08em
+            \vrule height .3ex width .15ex\hfil
+        }
+        \vbox{\copy2\box0}\box2}
+    }
 
 % embed
 
