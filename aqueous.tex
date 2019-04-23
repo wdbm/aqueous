@@ -4,7 +4,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% version: 2019-04-18T1605Z                                                    %
+% version: 2019-04-23T1727Z                                                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
@@ -59,6 +59,18 @@
 \usetikzlibrary{arrows, automata}
 \usetikzlibrary{positioning}
 \tikzset{>=latex}
+
+% anarchy symbol
+% usage: \anarchy{}
+% reference: https://tex.stackexchange.com/a/202672/126677
+\tikzset{mydeco/.style={decoration={random steps,segment length=.08em,amplitude=.05em},decorate,line cap=round}}
+\tikzset{anarchy/.pic={
+    \draw[line width=.1em,mydeco,decorate,red,fill=red](0em,0em)--(1.2em,.3em)--cycle;
+    \draw[line width=.1em,mydeco,red,fill=red](.2em,-.3em)--(.5em,.7em)--cycle;
+    \draw[line width=.1em,mydeco,red,fill=red](.5em,.7em)--(.8em,-.3em)--cycle;
+    \draw[line width=.1em,red,line cap=round,mydeco](.5em,.2em) circle(.6em);
+}}
+\newcommand{\anarchy}{\tikz\pic{anarchy};}
 
 % figures
 
