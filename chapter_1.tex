@@ -39,6 +39,17 @@ A few time representations follow:
 \item The temperature is \SI{14}{\celsius}. -- correct unit typesetting (siunitx)
 \end{itemize}
 
+Kerning is the aesthetic adjustment of the horizontal spacing of characters. The kerning of the unit symbol for the electron-volt can be improved over the default \LaTeX~kerning with commands like the following:
+
+\begin{lstlisting}
+\newcommand{\eV}{\text{e\kern-0.15ex V}\xspace}
+\newcommand{\MeV}{\text{M\eV}\xspace}
+\newcommand{\GeV}{\text{G\eV}\xspace}
+\newcommand{\TeV}{\text{T\kern-0.1ex \eV}\xspace}
+\end{lstlisting}
+
+So, TeV becomes \TeV.
+
 \subsection{Mathematics}
 
 The following is a referenced equation:
@@ -91,6 +102,22 @@ This is some code:
 \begin{center}
 \footnotesize\texttt{Reco\_tf.py --inputBSFile data12.1234.RAW --outputESDFile data12.1234.ESD}
 \end{center}
+
+Here is some more code. A single spin-${\frac{1}{2}}$ particle is initially ``up'' along ${z}$, rotated around the ${x}$-axis by angle ${\theta}$, and we compute the probability that it is still ``up'' afterwards:
+
+\begin{lstlisting}
+import numpy as np
+
+sigma_x = np.array([[0, 1], [1, 0]], dtype=complex)
+psi0 = np.array([1, 0], dtype=complex)                     # |^z>
+theta = np.pi / 3                                          # rotation angle
+U = np.cos(theta/2)*np.eye(2) - 1j*np.sin(theta/2)*sigma_x
+psi = U @ psi0                                             # evolved state
+P_up = np.abs(psi[0])**2                                   # probability of |^z>
+print(P_up)
+\end{lstlisting}
+
+This is a two-level quantum system, where \texttt{U} is the rotation operator ${e^{-\frac{-i\theta\sigma_{x}}{2}}}$, \texttt{psi} is the new state after rotation, and \texttt{P\_up} is the Born-rule probability of measuring spin up along ${z}$.
 
 \subsection{Images}
 
